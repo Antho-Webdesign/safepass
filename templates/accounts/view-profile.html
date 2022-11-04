@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Page Profile{% endblock title %}
+
+{% block content %}
+<style>
+td {
+  width: 20%;
+  text-align: center;
+  border: solid 1px;
+  padding: 20px;
+}
+
+.media-body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.media-body > table:nth-child(1) {
+  width: 90%;
+}
+
+.btn {
+  display: flex;
+  width: 10%;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+</style>
+    <!-- ========= Affichage des Informations ========= -->
+    <div class="content-section">
+        <h2 class="text-center mb-5">Mes informations</h2>
+            <div class="media">
+                <img class="rounded-circle account-img mb-4" src="{{ user.profile.image.url }}" alt="">
+                <div class="profile-tr">
+                    <div class="media-body">
+                        <table>
+
+                            <tr>
+                                <td>Pseudo</td>
+                                <td>Email</td>
+                                <td>Nom</td>
+                                <td>Prenom</td>
+                            </tr>
+
+                            <tr  class="font-italic">
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.first_name }}</td>
+                                <td>{{ user.last_name }}</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+                <a class="btn btn-info" href="{% url 'users-profile' %}">
+                    <strong>Modifier mon profile</strong>
+                </a>
+            </div>
+    </div>
+
+{% endblock content %}
