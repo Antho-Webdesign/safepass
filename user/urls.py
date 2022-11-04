@@ -10,7 +10,7 @@ from user.views import RegisterView, view_profile, profile, CustomLoginView, Res
 # from accounts.views import index
 
 urlpatterns = [
-    path(r'^oauth/', include('social_django.urls', namespace='social')),
+    path(r'^(?Poauth)/$', include('social_django.urls', namespace='social')),
 
     path('login/',
          CustomLoginView.as_view(redirect_authenticated_user=True, template_name='accounts/login.html',

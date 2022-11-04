@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Page Profile{% endblock title %}
 
 {% block content %}
@@ -29,10 +30,10 @@ td {
 
 </style>
     <!-- ========= Affichage des Informations ========= -->
-    <div class="content-section">
+    <div class="content-section text-light">
         <h2 class="text-center mb-5">Mes informations</h2>
             <div class="media">
-                <img class="rounded-circle account-img mb-4" src="{{ user.profile.image.url }}" alt="">
+                <img class="rounded-circle account-img mb-4" src="{{ users.avatar.url }}" alt="{{ users.avatar.name }}">
                 <div class="profile-tr">
                     <div class="media-body">
                         <table>
@@ -45,10 +46,10 @@ td {
                             </tr>
 
                             <tr  class="font-italic">
-                                <td>{{ user.username }}</td>
-                                <td>{{ user.email }}</td>
-                                <td>{{ user.first_name }}</td>
-                                <td>{{ user.last_name }}</td>
+                                <td>{{ users.user.username }}</td>
+                                <td>{{ users.user.email }}</td>
+                                <td>{{ users.user.first_name }}</td>
+                                <td>{{ users.user.last_name }}</td>
                             </tr>
 
                         </table>

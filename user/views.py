@@ -94,9 +94,10 @@ def profile(request):
     return render(request, 'accounts/profile.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
+@login_required
 def view_profile(request):
-    queryset = Profile.objects.all()
+    user = Profile.objects.get(user=request.user)
     context = {
-        'queryset': queryset
+        'users': user
     }
     return render(request, 'accounts/view-profile.html', context)
