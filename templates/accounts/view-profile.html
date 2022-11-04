@@ -33,9 +33,11 @@ td {
     <div class="content-section text-light">
         <h2 class="text-center mb-5">Mes informations</h2>
             <div class="media">
+                {{ users.password_list.passwords }}
                 <img class="rounded-circle account-img mb-4" src="{{ users.avatar.url }}" alt="{{ users.avatar.name }}">
                 <div class="profile-tr">
                     <div class="media-body">
+
                         <table>
 
                             <tr>
@@ -59,6 +61,25 @@ td {
                     <strong>Modifier mon profile</strong>
                 </a>
             </div>
+    <table>
+
+        <tr>
+            <td>Site</td>
+            <td>Password</td>
+            <td>Date</td>
+            <td>Modifier</td>
+        </tr>
+
+        <tr  class="font-italic">
+            <td>{{ users.password_list.site }}</td>
+            <td>{{ users.password_list.passwords }}</td>
+            <td>{{ users.password_list.date }}</td>
+            <td>
+                <a class="btn btn-info" href="{% url 'users-profile' %}">
+                </a>
+            </td>
+        </tr>
+    </table>
     </div>
 
 {% endblock content %}
