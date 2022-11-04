@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1 class="text-center">Rechercher un mot de passe</h1>
+    <div>
+        <form method="POST" class="form-search">
+            {% csrf_token %}
+            <label for="site">Pour le site :</label>
+                <input type="text" name="site" id="site">
+
+            <input type="submit" class="btn btn-success" value="Rechercher">
+        </form>
+    </div>
+
+    <div class="box-result-search">
+        {% for data in results %}
+
+            <table>
+                <tr>
+                    <th>Site</th>
+                    <th>Enregistrer le</th>
+                    <th>Mot de passe généré</th>
+                </tr>
+
+                <tr>
+                    <td>{{ data.site }}</td>
+                    <td>{{ data.time }}</td>
+                    <td>{{ data.passwords }}</td>
+                </tr>
+            </table>
+
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

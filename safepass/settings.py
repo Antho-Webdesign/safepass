@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'django_sass_compiler',
     'user',
     'social_django',
+    'crispy_forms',
+    'generator',
 ]
 
 MIDDLEWARE = [

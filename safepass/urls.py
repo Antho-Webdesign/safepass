@@ -9,5 +9,6 @@ from safepass.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('user.urls')),
+    path('generator/', include('generator.urls')),
     path('', index, name='index'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

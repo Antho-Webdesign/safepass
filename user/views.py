@@ -101,3 +101,4 @@ def view_profile(request):
         'users': user
     }
     return render(request, 'accounts/view-profile.html', context)
+
