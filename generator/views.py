@@ -3,13 +3,13 @@ import random
 from django.shortcuts import render
 
 from generator.models import GenPass
+from user.models import user
 
 
 # Create your views here.
 
 def password_home(request):
     if request.method == "POST":
-        user = request.user
         site = request.POST.get('site')
         if site == "":
             return render(request, 'generator/password-home.html')
@@ -25,7 +25,7 @@ def password_home(request):
             small_letters = "qwertyuioplkjhgfdsazxcvbnm"
             prep = f"!@#$%^&**()_+{numbers}{small_letters}QWERTYUIOPASDFGHJKLMNBVCXZ"
             passwd = ''.join(random.sample(prep, k=password_length))
-            print(passwd, site)
+            print(passwd, site, user)
             p = GenPass.objects.create(site=site, passwords=passwd)
             p.save()
             context = {'password': passwd}
