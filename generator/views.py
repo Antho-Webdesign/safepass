@@ -9,7 +9,7 @@ from generator.models import GenPass
 
 def password_home(request):
     if request.method == "POST":
-
+        user = request.user
         site = request.POST.get('site')
         if site == "":
             return render(request, 'generator/password-home.html')

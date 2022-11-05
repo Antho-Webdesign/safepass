@@ -11,7 +11,7 @@ user = get_user_model()
 # Extending User Model Using a One-To-One Link
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    password_list = models.ForeignKey(GenPass, on_delete=models.CASCADE, null=True, blank=True)
+    # password_list = models.OneToOneField(GenPass, on_delete=models.CASCADE, null=True, blank=True)
     avatar = models.ImageField(default='default.jpg', upload_to='profile_images',)
     bio = models.TextField()
 

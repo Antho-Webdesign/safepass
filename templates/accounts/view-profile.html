@@ -69,11 +69,10 @@ td {
             <td>Date</td>
             <td>Modifier</td>
         </tr>
-
         <tr  class="font-italic">
-            <td>{{ users.password_list.site }}</td>
-            <td>{{ users.password_list.passwords }}</td>
-            <td>{{ users.password_list.date }}</td>
+            <td>{{ users.user.profile.user.genpass.site }}</td>
+            <td>{{ users.user.profile.user.genpass.passwords }}</td>
+            <td>{{ users.user.profile.user.genpass.date }}</td>
             <td>
                 <a class="btn btn-info" href="{% url 'users-profile' %}">
                 </a>
