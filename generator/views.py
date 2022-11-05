@@ -6,8 +6,6 @@ from generator.models import GenPass
 from user.models import user
 
 
-# Create your views here.
-
 def password_home(request):
     if request.method == "POST":
         site = request.POST.get('site')
