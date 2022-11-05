@@ -1,5 +1,6 @@
 import random
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from generator.models import GenPass
@@ -9,8 +10,10 @@ from user.models import user
 def password_home(request):
     if request.method == "POST":
         site = request.POST.get('site')
+
         if site == "":
-            return render(request, 'generator/password-home.html')
+            message = "Veuillez entrer un site"
+            return render(request, 'generator/password-home.html', {'message': message})
 
         password_length = int(request.POST.get('length'))
         if password_length > 30:
@@ -30,3 +33,10 @@ def password_home(request):
             return render(request, 'generator/success.html', context)
 
     return render(request, "generator/password-home.html")
+
+
+@login_required
+def coffre_fort(request):
+    password_list = GenPass.objects.filter(user=request.user)
+    context = {'password_list': password_list}
+    return render(request, 'generator/listalll.html', context)

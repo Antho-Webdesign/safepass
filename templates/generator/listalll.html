@@ -221,28 +221,6 @@ h3 {
 
 
 <div class="content">
-    {% for i in items %}
-        <ul class="team">
-
-            <li class="member">
-                <div class="thumb">
-                    <img src="https://documents.trendmicro.com/images/microsoft-password-expiration-policies.jpg">
-                </div>
-                <div class="description">
-                    <h3>{{ i.date|date:"d/m/Y" }}</h3>
-                    <p class="note">Site:<strong>{{ i.site }}</strong>
-                        Mdp:<strong>{{ i.passwords }}</strong>
-                        <br>
-                        <a class="deleterecord" href="{% url 'deleterecord' i.id %}/">@delete</a>
-                    </p>
-                </div>
-            </li>
-        </ul>
-    {% endfor %}
-</div>
-
-
-
 
     {% if user != 'user.username' %}
 
@@ -255,20 +233,14 @@ h3 {
                 <td></td>
             </tr>
 
-            {% for i in items %}
-            <tr>
-                <td>{{ i.site }}</td>
-                <td>{{ i.date }}</td>
-                <td>{{ i.passwords }}</td>
-
-                <td>
-                    <a href="{% url 'deleterecord' i.id %}">
-                        <button type="button" class="btn btn-warning btn-sm">Supprimer</button>
-                    </a>
-                </td>
-
-            </tr>
-                {% endfor %}
+            {% for password in password_list %}
+                <tr>
+                    <td>{{ password.site }}</td>
+                    <td>{{ password.date|date:"d/m/Y" }}</td>
+                    <td>{{ password.passwords }}</td>
+                    <td><a href="#">Supprimer</a></td>
+                </tr>
+            {% endfor %}
         </table>
 {% endif %}
 
