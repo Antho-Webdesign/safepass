@@ -1,31 +1,25 @@
 from django import forms
-from django.forms import ModelForm
+from django.urls import reverse
 
-from contact.models import Contact
+from contact import models, views, admin, urls
 
 
-class ContactForm(ModelForm, forms.Form):
+def get_absolute_url():
+    return reverse('contact-view')
+
+
+class ContactForm(forms.Form):
+    sujet = forms.CharField(max_length=100)
+    message = forms.CharField(widget=forms.Textarea)
+    email = forms.EmailField()
+    cc_myself = forms.BooleanField(required=False)
+
+    def __str__(self):
+        return self.email
+
     class Meta:
-        model = Contact
-        fields = ['email', 'sujet', 'message']
-        widgets = {
-            'email': forms.EmailInput(attrs={'placeholder': 'Email', 'class': 'form-control'}),
-            'sujet': forms.TextInput(attrs={'placeholder': 'Sujet', 'class': 'form-control'}),
-            'message': forms.Textarea(attrs={'placeholder': 'Message', 'class': 'form-control'}),
-        }
+        ordering = ['-sending_date']
+        verbose_name = 'Contact'
+        verbose_name_plural = 'Contacts'
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['email'].label = ''
-        self.fields['sujet'].label = ''
-        self.fields['message'].label = ''
 
-    def clean(self):
-        cleaned_data = super().clean()
-        email = cleaned_data.get('email')
-        sujet = cleaned_data.get('sujet')
-        message = cleaned_data.get('message')
-
-        if not email and not sujet and not message:
-            raise forms.ValidationError('Veuillez remplir tous les champs')
-        return cleaned_data
