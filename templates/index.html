@@ -11,8 +11,12 @@
                 SafePass élimine les obstacles pour vous permettre de revenir à ce que vous aimez le plus.
             </p>
             <div class="infobox-btnwrapper">
-                <button class="infobox-explorebtn selected">Explore</button>
-                <button class="infobox-createbtn">Create</button>
+                <button class="infobox-explorebtn selected">
+                    <a href="{% url 'password-home' %}">
+                        Générer un mot de passe
+                    </a>
+                </button>
+                <button class="infobox-createbtn">Pourquoi utiliser un gestionnaire de mot de passe !</button>
             </div>
         </div>
     </div>

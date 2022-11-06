@@ -216,11 +216,11 @@ h3 {
 </style>
 
 <div>
-    <h1 class="text-center mt-3 mb-3">Mon coffre fort</h1>
+    <h1 class="text-center text-light mt-3 mb-3">Mon coffre fort</h1>
 </div>
 
 
-<div class="content">
+<div class="content text text-light">
 
     {% if user != 'user.username' %}
 
@@ -242,6 +242,7 @@ h3 {
                 </tr>
             {% endfor %}
         </table>
-{% endif %}
 
+{% endif %}
+</div>
 {% endblock %}

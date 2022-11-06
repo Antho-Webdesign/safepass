@@ -15,7 +15,22 @@
     <link rel="stylesheet" href="{% static 'build/css/style.css' %}">
 </head>
 <body>
+<style>
 
+.box .infobox-btnwrapper {
+  width: 90%;
+  justify-content: center;
+  margin: auto;
+}
+
+.box {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  margin: 100px auto;
+}
+
+</style>
 <div class="landingpage">
 
   <div class="navbar">
@@ -70,10 +85,9 @@
 
     </div>
   </div>
-
+</div>
 {% block content %}
 {% endblock %}
-</div>
 
 <!-- JavaScript Bundle with Popper -->
 </body>
