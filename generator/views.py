@@ -1,9 +1,9 @@
 import random
 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 
-from generator.models import GenPass
+from .models import GenPass
 
 
 def password_home(request):
@@ -38,9 +38,6 @@ def password_home(request):
 
 @login_required
 def coffre_fort(request):
-    password_list = get_object_or_404(GenPass, user=request.user)
-    context = {'password': password_list}
+    password_list = GenPass.objects.filter(user=request.user)
+    context = {'password_list': password_list}
     return render(request, 'generator/listalll.html', context)
-
-
-
