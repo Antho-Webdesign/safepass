@@ -17,7 +17,7 @@ label {
     <!-- ========= Affichage des Informations ========= -->
 <h3 class="text-light text-center">Profile</h3>
     <div class="row my-3 p-3 f-center">
-        <img class="rounded-circle account-img" src="{{ user.avatar.url }} " style="cursor: pointer; width: 25%;" alt=""/>
+        <img class="rounded-circle account-img" src="{{ avatar }} " style="cursor: pointer; width: 25%;" alt=""/>
     </div>
     {% if user_form.errors %}
         <div class="alert alert-danger alert-dismissible" role="alert">

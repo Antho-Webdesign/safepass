@@ -1,3 +1,4 @@
+import self
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordChangeView, PasswordResetView, LoginView
@@ -36,7 +37,7 @@ class RegisterView(View):
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}')
 
-            return redirect(to='index')
+            return redirect('index')
 
         return render(request, self.template_name, {'form': form})
 
@@ -78,7 +79,6 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
 
 @login_required
 def profile(request):
-
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
         profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -93,15 +93,12 @@ def profile(request):
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
 
-    return render(request, 'accounts/profile.html', {'user_form': user_form, 'profile_form': profile_form
-                                                     })
+    return render(request, 'accounts/profile.html', {'user_form': user_form,
+                                                     'profile_form': profile_form})
 
 
-@login_required
+@login_required()
 def view_profile(request):
-    user = Profile.objects.get(user=request.user)
-    context = {
-        'users': user,
+    profile = Profile.objects.get(user=request.user)
 
-    }
-    return render(request, 'accounts/view-profile.html', context)
+    return render(request, 'accounts/view-profile.html', {'profiles': profile})
