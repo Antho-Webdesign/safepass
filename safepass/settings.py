@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'social_django',
     'generator',
     'contact',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
