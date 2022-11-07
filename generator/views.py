@@ -38,6 +38,8 @@ def password_home(request):
 
 @login_required
 def coffre_fort(request):
-    password_list = GenPass.objects.filter(user=request.user)
-    context = {'password_list': password_list}
+    user = request.user
+    password_list = GenPass.objects.filter(user=user)
+    context = {'pass': password_list}
     return render(request, 'generator/listalll.html', context)
+
