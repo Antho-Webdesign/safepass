@@ -67,8 +67,13 @@ WSGI_APPLICATION = 'safepass.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'DATABASE': 'd12dc4nsf7cml7',
+        'NAME': 'postgresql-symmetrical-95187',
+        'USER': 'jnvgwxanpycnyt',
+        'PASSWORD': 'e2bb157283f2cac30584de2442d62b0951b5db9ce37fca34425d8aa88a18bbdc',
+        'HOST': 'ec2-3-209-39-2.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
