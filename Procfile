@@ -1,1 +1,1 @@
-web: gunicorn safepass.wsgi --log -file -
+web: gunicorn safepass.wsgi --log-file -
