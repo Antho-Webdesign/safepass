@@ -233,14 +233,15 @@ h3 {
                 <td></td>
             </tr>
 
-            {% for password in password_list %}
+            {% for pass in password_list %}
                 <tr>
-                    <td>{{ password.site }}</td>
-                    <td>{{ password.date|date:"d/m/Y" }}</td>
-                    <td>{{ password.passwords }}</td>
-                    <td><a href="#">Supprimer</a></td>
+                    <td>{{ pass.site }}</td>
+                    <td>{{ pass.date }}</td>
+                    <td>{{ pass.passwords }}</td>
+                    <td><a href="#" class="deleterecord">Supprimer</a></td>
                 </tr>
             {% endfor %}
+
         </table>
 
 {% endif %}
