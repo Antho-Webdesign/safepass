@@ -4,8 +4,6 @@ from django.utils import timezone
 
 
 # Create your models here.
-
-# Create your models here.
 class GenPass(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     site = models.CharField(max_length=30)
