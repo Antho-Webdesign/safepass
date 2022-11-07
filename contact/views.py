@@ -2,7 +2,6 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-import user.models
 from contact.forms import ContactForm
 from contact.models import Contact
 

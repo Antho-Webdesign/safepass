@@ -1,4 +1,3 @@
-# from accounts.views import index
 from django.urls import path
 
 from generator.views import password_home, coffre_fort
