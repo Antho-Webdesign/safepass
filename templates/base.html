@@ -15,27 +15,55 @@
     <link rel="stylesheet" href="{% static 'build/css/style.css' %}">
 </head>
 <body>
+<style>
+.box {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  margin: 100px auto;
+}
 
+.navbar .navlogo {
+  color: transparent;
+}
+
+a {
+  background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+    font-size: 1.5em;
+}
+
+</style>
 <div class="landingpage">
 
   <div class="navbar">
-    <a class="navlogo">Safe-Pass</a>
+    <a href="{% url 'index' %}" class="navlogo">SafePass</a>
     <button class="hamburger">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
              stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
         </svg>
       </button>
     <div class="navlinkwrap">
-      <span class="navlink selectedlink">
+      <span class="navlink">
           <a href="/">Home</a>
       </span>
 
       <span class="navlink">
-            <a href="">password</a>
+            <a href="{% url 'password-home' %}">password</a>
       </span>
 
-      <span class="navlink">Ressources</span>
-      <span class="navlink">Contact</span>
+      <span class="navlink">
+          <a href="{% url 'coffre-fort' %}">Coffre-fort</a>
+      </span>
+
+      <span class="navlink">
+          <a href="{% url 'contact-view' %}">
+                Contact
+          </a>
+      </span>
+
     </div>
     <div class="buttonwrap">
         {% if user.is_authenticated %}
@@ -67,10 +95,9 @@
 
     </div>
   </div>
-
+</div>
 {% block content %}
 {% endblock %}
-</div>
 
 <!-- JavaScript Bundle with Popper -->
 </body>
