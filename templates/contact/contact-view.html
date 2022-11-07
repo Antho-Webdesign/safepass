@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+
+</style>
+    <div>
+        <h1 class="text-center mt-5 mb-5 text-light">Formulaire de contact</h1>
+    </div>
+
+        <!-- formulaire de contact -->
+        <form name="contact" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+
+                <label class="text-light" for="email">Votre email</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre email" name="email">
+
+                <label class="text-light" for="sujet">Sujet</label>
+                <input type="text" class="form-control" id="sujet" aria-describedby="sujetHelp" placeholder="Sujet" name="sujet">
+
+                <label class="text-light" for="message">Votre message</label>
+                <textarea class="form-control" id="message" rows="3" name="message"></textarea>
+
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </div>
+        </form>
+
+{% endblock %}

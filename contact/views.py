@@ -26,7 +26,7 @@ def contact_view(request):
     else:
         form = ContactForm()
     context = {
-        'form': form,
+        'forms': form,
     }
 
     return render(request, 'contact/contact-view.html', context)

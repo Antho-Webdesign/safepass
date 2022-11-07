@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+
+.content {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content > form:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+</style>
+    <div>
+        <h1 class="text-center mt-5 mb-5 text-light">Formulaire ded contact</h1>
+    </div>
+
+    <div class="container">
+        <h1 class="text-center mt-5">Merci pour votre message</h1>
+        <p class="text-center">Nous traiterons au plus vite votre demande.</p>
+
+        <a href="{% url 'index' %}" class="btn btn-primary">Retour à l'accueil</a>
+    </div>
+{% endblock %}

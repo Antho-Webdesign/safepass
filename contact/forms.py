@@ -1,8 +1,6 @@
 from django import forms
 from django.urls import reverse
 
-from contact import models, views, admin, urls
-
 
 def get_absolute_url():
     return reverse('contact-view')
@@ -21,5 +19,3 @@ class ContactForm(forms.Form):
         ordering = ['-sending_date']
         verbose_name = 'Contact'
         verbose_name_plural = 'Contacts'
-
-
