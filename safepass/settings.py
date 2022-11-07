@@ -16,8 +16,8 @@ SECRET_KEY = 'django-insecure-rk=ppj-=t=@okqr&6)zgonevj#kn*!9y$$%lkvj(9aicx625s$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
+ALLOWED_HOSTS = ['.herokuapps.com', 'localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,6 +39,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -64,16 +66,10 @@ WSGI_APPLICATION = 'safepass.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'DATABASE': 'd12dc4nsf7cml7',
-        'NAME': 'postgresql-symmetrical-95187',
-        'USER': 'jnvgwxanpycnyt',
-        'PASSWORD': 'e2bb157283f2cac30584de2442d62b0951b5db9ce37fca34425d8aa88a18bbdc',
-        'HOST': 'ec2-3-209-39-2.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -100,7 +96,6 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -129,10 +124,8 @@ MEDIA_URL = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'accounts/login/'
-
 
 # social auth configs for GitHub
 SOCIAL_AUTH_GITHUB_KEY = str(os.getenv('GITHUB_KEY'))
