@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'django_sass_compiler',
     'user',
     'social_django',
+    'generator',
+    'contact',
 ]
 
 MIDDLEWARE = [
