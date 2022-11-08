@@ -1,4 +1,3 @@
-
 import random
 
 from django.contrib.auth.decorators import login_required
@@ -8,6 +7,7 @@ from .models import GenPass
 
 
 def password_home(request):
+    user = request.user
     if request.method == "POST":
         site = request.POST.get('site')
 
@@ -26,7 +26,6 @@ def password_home(request):
             small_letters = "qwertyuioplkjhgfdsazxcvbnm"
             prep = f"!@#$%^&**()_+{numbers}{small_letters}QWERTYUIOPASDFGHJKLMNBVCXZ"
             passwd = ''.join(random.sample(prep, k=password_length))
-            user = request.user
 
             print(passwd, site, user)
             p = GenPass.objects.create(site=site, passwords=passwd, user=user)
