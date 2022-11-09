@@ -640,7 +640,10 @@ body {
   }
 }
 
-@media screen and (max-width: 700px) {
+/*
+@media screen and (max-width: 700px)
+{
+
   .box {
     flex-direction: column;
   }
@@ -654,12 +657,14 @@ body {
     max-height: none;
     max-width: none;
   }
+
   .discover-title {
     justify-content: center;
   }
   .discover-title .filters {
     display: none;
   }
+
   .auction .title {
     justify-content: center;
   }
@@ -668,10 +673,12 @@ body {
   }
 }
 
+/*
 @media screen and (max-width: 600px) {
   .landingpage {
     padding: 0 20px;
   }
+
   .box .infobox-boldtext {
     font-size: 45px;
     line-height: 50px;
@@ -680,14 +687,17 @@ body {
     font-size: 12px;
     line-height: 16px;
   }
+
   .discover-items {
     grid-template-columns: auto;
     justify-content: space-around;
   }
+
   .auction .nft {
     grid-template-columns: auto;
     justify-content: space-around;
   }
+
   .footer-main {
     font-size: 20px;
     line-height: 30px;
@@ -695,6 +705,7 @@ body {
     margin-bottom: 50px;
     text-align: center;
   }
+
   .footer-navigate {
     justify-content: space-between;
     width: 100%;
@@ -711,6 +722,9 @@ body {
     line-height: 18px;
   }
 }
+*/
+/*
+
 
 @media screen and (max-width: 480px) {
   .landingpage .box .infobox-boldtext {
@@ -725,7 +739,6 @@ body {
     justify-content: center;
   }
 }
-
 @keyframes leftslide {
   from {
     transform: translateX(-700px);
@@ -734,7 +747,6 @@ body {
     transform: translateX(0px);
   }
 }
-
 @keyframes rightslide {
   from {
     transform: translateX(550px);
@@ -743,3 +755,4 @@ body {
     transform: translateX(0px);
   }
 }
+ */

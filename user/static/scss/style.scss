@@ -589,7 +589,11 @@ body {
     justify-content: space-around;
   }
 }
-@media screen and (max-width: 700px) {
+
+/*
+@media screen and (max-width: 700px)
+{
+
   .box {
     flex-direction: column;
   }
@@ -618,6 +622,8 @@ body {
     display: none;
   }
 }
+
+/*
 @media screen and (max-width: 600px) {
   .landingpage {
     padding: 0 20px;
@@ -666,6 +672,10 @@ body {
     line-height: 18px;
   }
 }
+*/
+/*
+
+
 @media screen and (max-width: 480px) {
   .landingpage .box .infobox-boldtext {
     font-size: 32px;
@@ -695,3 +705,4 @@ body {
     transform: translateX(0px);
   }
 }
+ */
