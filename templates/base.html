@@ -82,14 +82,6 @@ a {
       </span>
 
       <span class="navlink">
-            <a href="{% url 'password-home' %}">password</a>
-      </span>
-
-      <span class="navlink">
-          <a href="{% url 'coffre-fort' %}">Coffre-fort</a>
-      </span>
-
-      <span class="navlink">
           <a href="{% url 'contact_view' %}">
                 Contact
           </a>
@@ -105,11 +97,22 @@ a {
             </button>
 
             <button class="createbtn">
+                <a href="{% url 'coffre-fort' %}">
+                    Coffre-fort
+                </a>
+            </button>
+
+            <button class="createbtn">
+                <a href="{% url 'password-home' %}">
+                    password
+                </a>
+            </button>
+
+            <button class="createbtn">
                 <a href="{% url 'users-logout' %}">
                     logout
                 </a>
             </button>
-
         {% else %}
             <button class="createbtn selectedbtn">
                 <a href="{% url 'users-login' %}">

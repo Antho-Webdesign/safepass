@@ -10,14 +10,18 @@
             <p class="infobox-slimtext">
                 SafePass élimine les obstacles pour vous permettre de revenir à ce que vous aimez le plus.
             </p>
+
             <div class="infobox-btnwrapper">
+                {% if user.is_authenticated %}
                 <button class="infobox-explorebtn navlink">
                     <a href="{% url 'password-home' %}">
                         Générer un mot de passe
                     </a>
                 </button>
+                {% endif %}
                 <button class="infobox-createbtn">Pourquoi utiliser un gestionnaire de mot de passe !</button>
             </div>
+
         </div>
     </div>
 

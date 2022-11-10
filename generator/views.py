@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 from .models import GenPass
 
-
+@login_required
 def password_home(request):
     user = request.user
     if request.method == "POST":
