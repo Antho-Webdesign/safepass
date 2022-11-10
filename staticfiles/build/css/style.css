@@ -695,3 +695,12 @@ body {
     transform: translateX(0px);
   }
 }
+
+/* Feuille de style intégrée #8 | https://safepass2.herokuapp.com/genrator/coffre-fort/ */
+
+.content {
+  /* width: 90vmin; */
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

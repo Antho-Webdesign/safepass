@@ -343,6 +343,7 @@ body {
   font-size: 12px;
   color: #FFFFFF;
 }
+
 .started-items-item {
   display: flex;
   align-items: center;
@@ -385,7 +386,7 @@ body {
   border: 1px solid #D7D7D7;
   border-radius: 10px;
   background-color: transparent;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -395,7 +396,7 @@ body {
 
 .footer-main {
   max-width: 40%;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
@@ -410,7 +411,7 @@ body {
 }
 .footer-navigate .nav h5 {
   margin: 0;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -418,7 +419,7 @@ body {
   color: #FFFFFF;
 }
 .footer-navigate .nav p {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -428,7 +429,7 @@ body {
 }
 
 .footer2 p {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -458,7 +459,7 @@ body {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid white;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -466,7 +467,7 @@ body {
   color: #FFFFFF;
 }
 .item-date {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -482,7 +483,7 @@ body {
   display: flex;
   align-items: center;
   margin-right: 30px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -501,7 +502,7 @@ body {
   background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
   border: none;
   border-radius: 10px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -516,6 +517,7 @@ body {
     max-width: 1200px;
   }
 }
+
 @media screen and (max-width: 1040px) {
   .box {
     flex-direction: column;
@@ -706,3 +708,10 @@ body {
   }
 }
  */
+
+.content {
+  /* width: 90vmin; */
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
