@@ -158,7 +158,7 @@ mobile
                         <ul class="dropdown-menu">
                             {% if user.is_authenticated %}
                                 <li><a class="dropdown-item" href="{% url 'users-logout' %}">Déconnexion</a></li>
-                                <li><a class="dropdown-item" href="{% url 'users-profile' %}">Profil</a></li>
+                                <li><a class="dropdown-item" href="{% url 'view_profile' %}">Profil</a></li>
                                 <li><a class="dropdown-item" href="{% url 'coffre-fort' %}">Mots de passe</a></li>
 
                             {% else %}
