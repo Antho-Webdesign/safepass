@@ -8,7 +8,6 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIRS = BASE_DIR / 'templates'
 
-PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'staticfiles/js', 'serviceworker.js')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -35,7 +34,6 @@ INSTALLED_APPS = [
     'generator',
     'contact',
     'crispy_forms',
-    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -151,34 +149,5 @@ EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_PASSWORD'))
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 
-PWA_APP_NAME = 'SafePass'
-PWA_APP_DESCRIPTION = 'SafePass PWA'
-PWA_APP_THEME_COLOR = '#000000'
-PWA_APP_BACKGROUND_COLOR = '#ffffff'
-PWA_APP_DISPLAY = 'standalone'
-PWA_APP_SCOPE = '/'
-PWA_APP_ORIENTATION = 'any'
-PWA_APP_START_URL = '/'
-PWA_APP_STATUS_BAR_COLOR = 'default'
-PWA_APP_ICONS = [
-    {
-        'src': 'static/images/icons/icon-160x160.png',
-        'sizes': '160x160'
-    }
-]
-PWA_APP_ICONS_APPLE = [
-    {
-        'src': 'static/images/icons/icon-160x160.png',
-        'sizes': '160x160'
-    }
-]
-PWA_APP_SPLASH_SCREEN = [
-    {
-        'src': 'static/images/icons/icon.png',
-        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
-    }
-]
-PWA_APP_DIR = 'ltr'
-PWA_APP_LANG = 'en-US'
 
 django_heroku.settings(locals())

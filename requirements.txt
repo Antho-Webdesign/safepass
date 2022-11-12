@@ -4,7 +4,6 @@ cart==1.2.1
 certifi==2022.9.24
 cffi==1.15.1
 charset-normalizer==2.0.8
-
 configobj==5.0.6
 cryptography==38.0.3
 decorator==5.1.1
