@@ -78,6 +78,8 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
 
 @login_required
 def profile(request):
+    myprofile = Profile.objects.get(user=request.user)
+
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
         profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -90,8 +92,9 @@ def profile(request):
     else:
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
+        query_set = Profile.objects.all()
 
-    return render(request, 'accounts/profile.html', {'user_form': user_form, 'profile_form': profile_form})
+    return render(request, 'accounts/profile.html', {'user_form': user_form, 'profile_form': profile_form, 'myprofile': myprofile})
 
 
 @login_required
