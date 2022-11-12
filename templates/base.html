@@ -37,6 +37,76 @@ a {
   text-decoration: none;
   font-size: 1.5em;
 }
+
+/*
+mobile
+ */
+/* btn */
+.menu-anim {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 25px;
+}
+
+.menu-anim span {
+  margin: 0 auto;
+  position: relative;
+  top: 12px;
+}
+.menu-anim span:before,
+.menu-anim span:after {
+  position: absolute;
+  content: "";
+}
+.menu-anim span,
+.menu-anim span:before,
+.menu-anim span:after {
+  width: 30px;
+  height: 6px;
+  background-color: #000;
+  display: block;
+}
+.menu-anim span:before {
+  margin-top: -12px;
+}
+.menu-anim span:after {
+  margin-top: 12px;
+}
+/* --- btn --- */
+
+/* examples */
+
+/* example 4 */
+.btn-mbl span {
+  -webkit-transition: 0.2s ease 0s;
+  transition: 0.2s ease 0s;
+}
+.btn-mbl span:before,
+.btn-mbl span:after {
+  -webkit-transition-property: margin, opacity;
+  transition-property: margin, opacity;
+  -webkit-transition-duration: 0.2s, 0s;
+  transition-duration: 0.2s, 0s;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+.btn-mbl:hover span {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.btn-mbl:hover span:before,
+.btn-mbl:hover span:after {
+  margin-top: 0px;
+  opacity: 0;
+  -webkit-transition-delay: 0s, 0.2s;
+  transition-delay: 0s, 0.2s;
+}
+
 @media (max-width: 840px) {
 
     .cache {
@@ -60,45 +130,51 @@ a {
     .cache {
         display: flex;
     }
-}
-@media (min-width: 840px) {
-    .cache {
+    .nav-lg {
         display: none;
     }
 }
+    @media (min-width: 840px) {
+        .cache {
+            display: none;
+        }
+
+        .nav-lg {
+            display: flex;
+        }
+    }
 </style>
 
 <div class="landingpage">
   <div class="navbar navbar-expand-lg">
     <a href="{% url 'index' %}" class="navlogo">SafePass</a>
-<div class="cache">
-<div class="navbar-collapse justify-content-md-center" id="myNavbarsExample10">
-    <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">///</a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
-</div>
-      <div class="navlinkwrap">
-          <span class="navlink">
-              <a href="/">Home</a>
-          </span>
 
-          <span class="navlink">
-              <a href="{% url 'contact_view' %}">
-                  Contact
-              </a>
-          </span>
-      </div>
-      <div class="buttonwrap">
+        <div class="cache">
+            <div class="navbar-collapse justify-content-md-center" id="myNavbarsExample10">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle menu-anim btn-mbl" href="#" data-bs-toggle="dropdown" aria-expanded="false"><span></span></a>
+
+                        <ul class="dropdown-menu">
+                            {% if user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'users-logout' %}">Déconnexion</a></li>
+                                <li><a class="dropdown-item" href="{% url 'users-profile' %}">Profil</a></li>
+                                <li><a class="dropdown-item" href="{% url 'coffre-fort' %}">Mots de passe</a></li>
+
+                            {% else %}
+                                <li><a class="dropdown-item" href="{% url 'users-login' %}">Connexion</a></li>
+                                <li><a class="dropdown-item" href="{% url 'users-register' %}">Inscription</a></li>
+                            {% endif %}
+                                <li><a class="dropdown-item" href="{% url 'contact_view' %}">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+      <div class="nav-lg">
           {% if user.is_authenticated %}
-              <button class="createbtn selectedbtn">
+              <button class="createbtn">
                   <a href="{% url 'view_profile' %}">
                       Profile
                   </a>
@@ -106,37 +182,35 @@ a {
               <button class="createbtn">
                   <a href="{% url 'coffre-fort' %}">
                       Coffre-fort
-                </a>
+                  </a>
+              </button>
 
-            </button>
+              <button class="createbtn">
+                  <a href="{% url 'password-home' %}">
+                      password
+                  </a>
+              </button>
 
-            <button class="createbtn">
-                <a href="{% url 'password-home' %}">
-                    password
-                </a>
-            </button>
+              <button class="createbtn">
+                  <a href="{% url 'users-logout' %}">
+                      logout
+                  </a>
+              </button>
 
-            <button class="createbtn">
-                <a href="{% url 'users-logout' %}">
-                    logout
-                </a>
-            </button>
+          {% else %}
+              <button class="createbtn selectedbtn">
+                  <a href="{% url 'users-login' %}">
+                      Connexion
+                  </a>
+              </button>
 
-        {% else %}
-            <button class="createbtn selectedbtn">
-                <a href="{% url 'users-login' %}">
-                    Connexion
-                </a>
-            </button>
-
-            <button class="createbtn selectedbtn">
-                <a href="{% url 'users-register' %}">
-                    Inscription
-                </a>
-            </button>
-        {% endif %}
-
-    </div>
+              <button class="createbtn selectedbtn">
+                  <a href="{% url 'users-register' %}">
+                      Inscription
+                  </a>
+              </button>
+          {% endif %}
+      </div>
   </div>
 </div>
 
